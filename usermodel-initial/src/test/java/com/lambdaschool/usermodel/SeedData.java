@@ -64,7 +64,7 @@ public class SeedData
         r3 = roleService.save(r3);
 
         // admin, data, user
-        User u1 = new User("Test admin",
+        User u1 = new User("test admin",
             "password",
             "admin@lambdaschool.local");
         u1.getRoles()
@@ -86,7 +86,7 @@ public class SeedData
         userService.save(u1);
 
         // data, user
-        User u2 = new User("Test cinnamon",
+        User u2 = new User("test cinnamon",
             "1234567",
             "cinnamon@lambdaschool.local");
         u2.getRoles()
@@ -107,7 +107,7 @@ public class SeedData
         userService.save(u2);
 
         // user
-        User u3 = new User("Test barnbarn",
+        User u3 = new User("test barnbarn",
             "ILuvM4th!",
             "barnbarn@lambdaschool.local");
         u3.getRoles()
@@ -118,7 +118,7 @@ public class SeedData
                 "barnbarn@email.local"));
         userService.save(u3);
 
-        User u4 = new User("Test puttat",
+        User u4 = new User("test puttat",
             "password",
             "puttat@school.lambda");
         u4.getRoles()
@@ -126,7 +126,7 @@ public class SeedData
                 r2));
         userService.save(u4);
 
-        User u5 = new User("Test misskitty",
+        User u5 = new User("test misskitty",
             "password",
             "misskitty@school.lambda");
         u5.getRoles()
