@@ -74,7 +74,7 @@ public class UserServiceImplUnitTest {
     }
 
     @Test
-    public void z_delete() {  //Works
+    public void g_delete() {  //Works
         userService.delete(11);
         assertEquals(4,
                 userService.findAll().
@@ -82,7 +82,7 @@ public class UserServiceImplUnitTest {
     }
 
     @Test(expected = ResourceNotFoundException.class)
-    public void zz_deleteFailed() {  //Works
+    public void gg_deleteFailed() {  //Works
         userService.delete(1111);
         assertEquals(4,
                 userService.findAll().
@@ -97,12 +97,12 @@ public class UserServiceImplUnitTest {
     }
 
     @Test
-    public void z_save() { //NOT working
+    public void h_save() { //Works
 
         String user3name = "test neil";
         User u3 = new User(user3name,
                 "ILuvM4th!",
-                "barnbarn@lambdaschool.local");
+                "neil@lambdaschool.local");
 
         Role role2 = new Role("user");
         role2.setRoleid(2);
@@ -110,10 +110,10 @@ public class UserServiceImplUnitTest {
         u3.getRoles()
                 .add(new UserRoles(u3,
                         role2));
-//        u3.getUseremails()
-//                .add(new Useremail(u3,
-//                        "barnbarn@email.local"));
-//        
+        u3.getUseremails()
+                .add(new Useremail(u3,
+                        "barnbarn@email.local"));
+
         User addUser = userService.save(u3);
         assertNotNull(addUser);
         assertEquals(user3name, addUser.getUsername());
@@ -121,7 +121,7 @@ public class UserServiceImplUnitTest {
     }
 
     @Test
-    public void z_update() { //Working
+    public void i_update() { //Working
 
         String user3name = "test neil";
         User u3 = new User();
