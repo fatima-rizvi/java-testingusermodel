@@ -99,31 +99,56 @@ public class UserServiceImplUnitTest {
     @Test
     public void z_save() { //NOT working
 
-//        User u3 = new User("test neil",
-//                "ILuvM4th!",
-//                "barnbarn@lambdaschool.local");
-//
-//        Role role2 = new Role("user");
-//        role2.setRoleid(2);
-//
-//        u3.getRoles()
-//                .add(new UserRoles(u3,
-//                        role2));
+        String user3name = "test neil";
+        User u3 = new User(user3name,
+                "ILuvM4th!",
+                "barnbarn@lambdaschool.local");
+
+        Role role2 = new Role("user");
+        role2.setRoleid(2);
+
+        u3.getRoles()
+                .add(new UserRoles(u3,
+                        role2));
 //        u3.getUseremails()
 //                .add(new Useremail(u3,
 //                        "barnbarn@email.local"));
-//        User addUser = userService.save(u3);
-//        assertNotNull(addUser);
-//        assertEquals("test neil", addUser.getUsername());
+//        
+        User addUser = userService.save(u3);
+        assertNotNull(addUser);
+        assertEquals(user3name, addUser.getUsername());
 
     }
 
     @Test
-    public void z_update() {
+    public void z_update() { //Working
+
+        String user3name = "test neil";
+        User u3 = new User();
+        u3.setUsername(user3name);
+        u3.setUserid(7);
+        u3.setPrimaryemail("neil@lambda.com");
+        u3.setPassword("123456");
+
+        Role role2 = new Role("user");
+        role2.setRoleid(2);
+
+        u3.getRoles()
+                .add(new UserRoles(u3,
+                        role2));
+        u3.getUseremails()
+                .add(new Useremail(u3,
+                        "barnbarn@email.local"));
+
+        User updateUser = userService.update(u3, 7);
+        assertNotNull(updateUser);
+        assertEquals(user3name, userService.findUserById(7).getUsername());
+
+
     }
 
     @Test
-    public void zzz_deleteAll() {
+    public void zzz_deleteAll() { //Works
         userService.deleteAll();
         assertEquals(0,
                 userService.findAll().
